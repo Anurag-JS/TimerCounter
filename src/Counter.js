@@ -14,7 +14,19 @@ export default function Counter (){
         },1000);
 
         return () => clearInterval(timerId);
-    },[paused])
+    },[paused]);
+
+    const formatTime = (timeInSeconds) => {
+        const hours = Math.floor(timeInSeconds / 3600);
+        const minutes = Math.floor((timeInSeconds % 3600) / 60);
+        const seconds = timeInSeconds % 60;
+
+        const formattedHours = String(hours).padStart(2, '0');
+        const formattedMinutes = String(minutes).padStart(2, '0');
+        const formattedSeconds = String(seconds).padStart(2, '0');
+
+        return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+    };
 
     const handlePause = ()=>{
         setPaused(!paused);
@@ -29,7 +41,7 @@ export default function Counter (){
         <div className="container">
             <h2>Timer</h2>
             <br></br>
-            <div className="timer"><strong>{timer}</strong></div> <br></br> <br></br>
+            <div className="timer"><strong>{formatTime(timer)}</strong></div> <br></br> <br></br>
             <button onClick={handlePause}><strong>{paused ? "Resume" : "Pause"}</strong></button>&nbsp; &nbsp;
             <button onClick={handleReset}><strong>Reset</strong></button>
         </div>
