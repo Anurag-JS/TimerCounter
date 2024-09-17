@@ -9,20 +9,27 @@ export default function Counter (){
         const timerId = setInterval(()=>{
             if(!paused){
                 setTimer((prev) => prev + 1);
+                console.log(timer);
             }
-        },1000)
-    },[])
+        },1000);
+
+        return () => clearInterval(timerId);
+    },[paused])
 
     const handlePause = ()=>{
+        setPaused(!paused);
+    }
+
+    const handleReset = ()=>{
+        setTimer(0);
         setPaused(true);
     }
 
     return(
         <div>
-            {}
-            <button>Pause</button>
-            <button>Resume</button>
-            <button>Reset</button>
+            {timer}
+            <button onClick={handlePause}>{paused ? "Resume" : "Pause"}</button>
+            <button onClick={handleReset}>Reset</button>
         </div>
     )
 }
