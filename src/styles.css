@@ -2,3 +2,28 @@
   font-family: sans-serif;
   text-align: center;
 }
+
+.container{
+  background-color: rgb(162, 85, 234);
+  border: 5px solid black;
+  border-radius: 20px;
+  width: 60vw;
+  height: 40vh;
+  position: absolute;
+  top: 25%;
+  left: 20%;
+}
+
+.timer{
+
+}
+
+button{
+  background-color: rgb(6, 6, 111);
+  border: 3px solid goldenrod;
+  border-radius: 10px;
+  padding: 0.5rem;
+  color: white;
+}
+
+

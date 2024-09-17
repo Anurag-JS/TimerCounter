@@ -26,10 +26,12 @@ export default function Counter (){
     }
 
     return(
-        <div>
-            {timer}
-            <button onClick={handlePause}>{paused ? "Resume" : "Pause"}</button>
-            <button onClick={handleReset}>Reset</button>
+        <div className="container">
+            <h2>Timer</h2>
+            <br></br>
+            <div className="timer"><strong>{timer}</strong></div> <br></br> <br></br>
+            <button onClick={handlePause}><strong>{paused ? "Resume" : "Pause"}</strong></button>&nbsp; &nbsp;
+            <button onClick={handleReset}><strong>Reset</strong></button>
         </div>
     )
 }
